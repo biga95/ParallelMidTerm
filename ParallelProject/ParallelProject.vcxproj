@@ -123,8 +123,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\da copiare\ParallelProject\parallel_words.cpp" />
     <ClCompile Include="..\..\da copiare\ParallelProject\utility.cpp" />
+    <ClCompile Include="parallel_words.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\da copiare\ParallelProject\utility.h" />

@@ -123,8 +123,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\da copiare\SequentialProject\sequential_bigrams.cpp" />
     <ClCompile Include="..\..\da copiare\SequentialProject\utility.cpp" />
+    <ClCompile Include="sequential_bigrams.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\da copiare\SequentialProject\utility.h" />

@@ -260,7 +260,7 @@ int main() {
 
     SpeedupData sp = read_speedup("../results/seq_times.txt", "../results/par_times.txt");
     write_speedup_to_file(sp, "../results/speedup.txt");
-    std::cout << "\nSpeedup calcolato correttamente!\n";
+    std::cout << "\nSpeedup calcolato!\n";
 
 }
 
