@@ -1,4 +1,4 @@
-big_words 2.74015
-tri_words 5.23006
-big_chars 3.28685
-tri_chars 2.6569
+big_words 6.21621
+tri_words 24.0322
+big_chars 11.5606
+tri_chars 12.2209
