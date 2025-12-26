@@ -1,0 +1,23 @@
+# Visual Studio
+.vs/
+*.vcxproj.user
+*.suo
+*.user
+*.cache
+*.db
+*.opendb
+*.log
+
+# Build
+x64/
+Debug/
+Release/
+*.obj
+*.pdb
+*.exe
+*.ilk
+*.tlog
+
+# Dataset pesanti
+dataset/*
+!dataset/README.txt
