@@ -1,23 +1,29 @@
-# Visual Studio
 .vs/
-*.vcxproj.user
-*.suo
-*.user
-*.cache
-*.db
-*.opendb
-*.log
-
-# Build
 x64/
 Debug/
 Release/
+
 *.obj
 *.pdb
-*.exe
 *.ilk
+*.log
 *.tlog
+*.pch
+*.ipdb
+*.iobj
 
-# Dataset pesanti
+
+*.exe
+*.dll
+*.lib
+*.exp
+
+*.user
+*.suo
+
 dataset/*
 !dataset/README.txt
+
+ParallelProject/par_times.txt
+SequentialProject/seq_times.txt
+results/speedup.txt
