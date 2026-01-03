@@ -1,0 +1,4 @@
+big_words 0.662379
+tri_words 0.930318
+big_chars 0.0856444
+tri_chars 0.127489

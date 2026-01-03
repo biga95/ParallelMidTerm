@@ -24,6 +24,4 @@ Release/
 dataset/*
 !dataset/README.txt
 
-ParallelProject/par_times.txt
-SequentialProject/seq_times.txt
-results/speedup.txt
+

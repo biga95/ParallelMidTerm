@@ -1,0 +1,5 @@
+=== SPEEDUP ===
+big_chars : 3.63311
+big_words : 1.22694
+tri_words : 0.919397
+tri_chars : 3.97785

@@ -3,6 +3,7 @@
 #include <string>
 #include <unordered_map>
 
+
 // legge un file di tempi (label valore) e li mette in una mappa
 bool load_times(const std::string& filename,
     std::unordered_map<std::string, double>& out);
@@ -26,3 +27,5 @@ SpeedupData read_speedup(const std::string& seq_file,
 // scrive gli speedup su un file di testo (es. ../results/speedup.txt)
 void write_speedup_to_file(const SpeedupData& s,
     const std::string& filename);
+
+std::string results_path(const std::string& filename);

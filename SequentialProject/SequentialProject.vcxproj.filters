@@ -15,15 +15,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\da copiare\SequentialProject\utility.cpp">
+    <ClCompile Include="sequential_bigrams.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
-    <ClCompile Include="sequential_bigrams.cpp">
+    <ClCompile Include="utility.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\da copiare\SequentialProject\utility.h">
+    <ClInclude Include="utility.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
   </ItemGroup>

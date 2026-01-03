@@ -1,6 +1,7 @@
 #include "utility.h"
 #include <fstream>
 #include <iostream>
+#include <filesystem>
 
 // legge un file di tempi e li mette in una mappa
 bool load_times(const std::string& filename,
@@ -113,3 +114,30 @@ void write_speedup_to_file(const SpeedupData& s,
     out << "tri_words : " << s.tri_words << "\n";
     out << "tri_chars : " << s.tri_chars << "\n";
 }
+
+static std::string find_project_root()
+{
+    namespace fs = std::filesystem;
+    fs::path p = fs::current_path();
+
+    for (int i = 0; i < 6; i++) { // massimo 6 livelli su
+        if (fs::exists(p / "ParallelMidTerm.sln")) {
+            return p.string();
+        }
+        p = p.parent_path();
+    }
+
+    // fallback: se non trova la sln, usa current_path
+    return fs::current_path().string();
+}
+
+std::string results_path(const std::string& filename)
+{
+    namespace fs = std::filesystem;
+    fs::path root = find_project_root();
+    fs::path resdir = root / "results";
+    fs::create_directories(resdir);
+    return (resdir / filename).string();
+}
+
+
