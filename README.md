@@ -1,7 +1,8 @@
-Elaborato Mid Term — Parallel Computing
-Calcolo e confronto di bigrammi e trigrammi (di parole e caratteri) tra una versione sequenziale e una parallela con OpenMP.
+Elaborato Mid Term – Parallel Computing
 
-Obiettivo del progetto: misurare il tempo di esecuzione delle due versioni e valutarne l’accelerazione (speedup).
+Questo progetto confronta una versione sequenziale e una versione parallela (OpenMP) per il calcolo di bigrammi e trigrammi, sia di parole che di caratteri, a partire da un file di testo.
+
+L’obiettivo è misurare i tempi di esecuzione e calcolare lo speedup della versione parallela rispetto a quella sequenziale.
 
 ---
 
@@ -11,24 +12,23 @@ Il repository contiene una solution Visual Studio con due progetti distinti:
 
 ParallelMidTerm/
 │
-├─ ParallelProject/ ← versione parallela (OpenMP)
-│ ├─ parallel_words.cpp ← main parallelo
-│ ├─ utility.cpp / utility.h ← funzioni condivise
-│ └─ par_times.txt ← tempi registrati in esecuzione
+├─ SequentialProject/
+│   ├─ sequential_bigrams.cpp
+│   ├─ utility.cpp / utility.h
+│   
 │
-├─ SequentialProject/ ← versione sequenziale
-│ ├─ sequential_bigrams.cpp ← main sequenziale
-│ ├─ utility.cpp / utility.h
-│ └─ seq_times.txt ← tempi registrati in esecuzione
+├─ ParallelProject/
+│   ├─ parallel_words.cpp
+│   ├─ utility.cpp / utility.h
+│   
 │
 ├─ results/
-│ └─ speedup.txt ← confronto prestazioni seq vs par
 │
-├─ dataset/ ← file testo NON incluso nel repo
-│
+├─ dataset/        (NON incluso nel repository)
 │
 ├─ .gitignore
 └─ ParallelMidTerm.sln
+
 
 
 ---
@@ -43,71 +43,49 @@ Bigrammi di caratteri
 Trigrammi di caratteri 
 
 Per ciascuna modalità vengono contati tutti i n-grammi, ordinati per frequenza e stampati i Top 10.  
-Entrambe le versioni misurano i tempi di esecuzione e li salvano in:
-SequentialProject/seq_times.txt
-ParallelProject/par_times.txt
+
+Sia versione parallela che sequenziale confrontano i loro tempi e calcolano lo speedup, salvando tutti file txt nella cartella results.
 
 
-La versione parallela inoltre confronta i tempi con la sequenziale
-e genera il file:
-results/speedup.txt
-
-
-contenente lo speedup S = T_seq / T_par.
 
 ---
 
 Come eseguire
 
-1. Aprire `ParallelMidTerm.sln` con Visual Studio (testato con VS2022)
-2. Caricare il dataset in `./dataset/` (es: `eng_news_2024_100K-sentences.txt`)
-3. Impostare uno dei due progetti come avvio:
+Aprire ParallelMidTerm.sln con Visual Studio 2022
 
-| Progetto | Modalità | Output file tempi |
-|--------|----------|-----------------|
-| `SequentialProject` | sequenziale | `seq_times.txt` |
-| `ParallelProject`   | OpenMP       | `par_times.txt` + `speedup.txt` |
+Inserire il dataset nella cartella dataset/
 
-4. Compilare → Eseguire  
-5. I risultati (Top 10 n-grammi, tempi, speedup) compariranno su console + file
+Impostare come progetto di avvio:
 
----
+SequentialProject per la versione sequenziale
 
-Speedup ottenuto (esempio reale)
+ParallelProject per la versione parallela
 
-| Categoria | Speedup |
-|----------|---------|
-| Bigrammi caratteri | ≈ 2.8x |
-| Trigrammi parole   | ≈ 2.3x |
-| Trigrammi caratteri| ≈ 1.17x |
-| Bigrammi parole    | < 1x (overhead > guadagno) |
+Compilare ed eseguire
 
-💡 Interpretazione  
-- Quando il lavoro è grande e il costo del merge è basso → buon speedup  
-- Per operazioni leggere come bigrammi parole → overhead dei thread incide di più
+I risultati vengono mostrati su console e salvati nei file di output.
 
 ---
 
 Dataset
 
-Il corpus non è incluso per dimensione.  
-Per riprodurre i test:
+Il dataset non è incluso nel repository per motivi di dimensione.
 
-1. Scaricare da Leipzig Corpora Collection
-   https://wortschatz.uni-leipzig.de/en/download/English  
-   *(file usato nei test: `eng_news_2024_100K-sentences.txt`)*
+È stato utilizzato un corpus della Leipzig Corpora Collection, ad esempio:
+eng_news_2024_100K-sentences.txt
+eng_news_2024_1M-sentences.txt
 
-2. Inserire in:  ParallelMidTerm/dataset/
-
-
-3. Il programma lo leggerà automaticamente.
+il dataset va inserito nella cartella:
+ParallelMidTerm/dataset/
 
 ---
 
  Nota sullo sviluppo
+Nota sullo sviluppo
 
-Il progetto inizialmente nasce in una repo separata con vari test incrementali.  
-Alla maturazione della versione stabile ho riorganizzato tutto in questa struttura più pulita con 2 progetti dentro la stessa solution, per consegna e confronto più chiaro.
+Durante lo sviluppo sono stati fatti vari test e riorganizzazioni.
+La versione finale è stata raccolta in questa struttura con due progetti separati nella stessa solution, per rendere il confronto più chiaro e la consegna più ordinata.
 
 (vecchia repo)
 https://github.com/biga95/bigrams_trigrams
@@ -116,10 +94,11 @@ https://github.com/biga95/bigrams_trigrams
 
 Conclusione
 
-Implementate versioni sequenziale + parallela OpenMP
-Misurati tempi e generato confronto speedup automatico
-Struttura pulita e replicabile  
-Repository pronto per presentazione e dimostrazione orale
+Implementate versione sequenziale e parallela con OpenMP
+
+Misurati tempi reali di esecuzione
+
+Calcolato automaticamente lo speedup
 
 
 
