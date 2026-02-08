@@ -25,3 +25,4 @@ dataset/*
 !dataset/README.txt
 
 
+/results
